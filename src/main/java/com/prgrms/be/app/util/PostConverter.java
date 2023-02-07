@@ -1,10 +1,10 @@
 package com.prgrms.be.app.util;
 
-import com.prgrms.be.app.domain.Post;
-import com.prgrms.be.app.domain.User;
-import com.prgrms.be.app.domain.dto.PostCreateRequest;
-import com.prgrms.be.app.domain.dto.PostDetailResponse;
-import com.prgrms.be.app.domain.dto.PostsResponse;
+import com.prgrms.be.app.domain.post.Post;
+import com.prgrms.be.app.domain.post.dto.PostCreateRequest;
+import com.prgrms.be.app.domain.post.dto.PostDetailResponse;
+import com.prgrms.be.app.domain.post.dto.PostsResponse;
+import com.prgrms.be.app.domain.user.User;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

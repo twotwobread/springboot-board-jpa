@@ -1,8 +1,13 @@
 package com.prgrms.be.app.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.prgrms.be.app.domain.dto.*;
-import com.prgrms.be.app.service.PostService;
+import com.prgrms.be.app.common.dto.PageRequest;
+import com.prgrms.be.app.common.dto.ResponseMessage;
+import com.prgrms.be.app.domain.post.dto.PostCreateRequest;
+import com.prgrms.be.app.domain.post.dto.PostDetailResponse;
+import com.prgrms.be.app.domain.post.dto.PostUpdateRequest;
+import com.prgrms.be.app.domain.post.dto.PostsResponse;
+import com.prgrms.be.app.domain.post.service.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.MediaType;
@@ -183,8 +187,8 @@ class PostControllerTest {
     @DisplayName("현재 페이지 정보와 한 페이지 당 게시글 수를 입력 시 페이징된 게시글이 반환되며 게시글의 정보는 게시글 ID, 제목, 생성일자가 반환된다.")
     void getAllCallTest() throws Exception {
         // given
-        PostPageRequest postPageRequest = new PostPageRequest(0, 5, Sort.Direction.DESC);
-        Pageable request = PageRequest.of(0, 5);
+        PageRequest pageRequest = new PageRequest(0, 5, Sort.Direction.DESC);
+        Pageable request = org.springframework.data.domain.PageRequest.of(0, 5);
         List<PostDetailResponse> postDtos = List.of(
                 new PostDetailResponse("title1", "content1", 1L, LocalDateTime.now(), 1L, "user1"),
                 new PostDetailResponse("title2", "content2", 2L, LocalDateTime.now(), 2L, "user2"),
@@ -196,7 +200,7 @@ class PostControllerTest {
 
         // when
         ResultActions resultActions = mockMvc.perform(get("/posts")
-                        .content(objectMapper.writeValueAsString(postPageRequest))
+                        .content(objectMapper.writeValueAsString(pageRequest))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print());

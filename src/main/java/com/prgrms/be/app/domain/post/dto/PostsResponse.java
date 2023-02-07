@@ -1,4 +1,4 @@
-package com.prgrms.be.app.domain.dto;
+package com.prgrms.be.app.domain.post.dto;
 
 import java.util.List;
 

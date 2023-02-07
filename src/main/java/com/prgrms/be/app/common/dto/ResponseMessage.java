@@ -1,4 +1,4 @@
-package com.prgrms.be.app.controller;
+package com.prgrms.be.app.common.dto;
 
 public class ResponseMessage {
     public static final String CREATED = "게시물 생성 완료";

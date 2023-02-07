@@ -1,4 +1,4 @@
-package com.prgrms.be.app.domain.dto;
+package com.prgrms.be.app.common.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

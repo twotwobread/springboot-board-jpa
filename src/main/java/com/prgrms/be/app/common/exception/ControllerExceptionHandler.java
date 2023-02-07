@@ -1,6 +1,7 @@
-package com.prgrms.be.app.controller;
+package com.prgrms.be.app.common.exception;
 
-import com.prgrms.be.app.domain.dto.ApiResponse;
+import com.prgrms.be.app.common.dto.ApiResponse;
+import com.prgrms.be.app.common.dto.ResponseMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

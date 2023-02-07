@@ -1,5 +1,7 @@
-package com.prgrms.be.app.domain;
+package com.prgrms.be.app.domain.user;
 
+import com.prgrms.be.app.domain.config.BaseEntity;
+import com.prgrms.be.app.domain.post.Post;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

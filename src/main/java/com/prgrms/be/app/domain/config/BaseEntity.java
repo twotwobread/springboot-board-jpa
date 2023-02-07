@@ -1,4 +1,4 @@
-package com.prgrms.be.app.domain;
+package com.prgrms.be.app.domain.config;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

@@ -1,5 +1,7 @@
-package com.prgrms.be.app.domain;
+package com.prgrms.be.app.domain.post;
 
+import com.prgrms.be.app.domain.config.BaseEntity;
+import com.prgrms.be.app.domain.user.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -63,11 +65,11 @@ public class Post extends BaseEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Post post = (Post) o;
-        return Objects.equals(id, post.id) && Objects.equals(title, post.title) && Objects.equals(content, post.content) && Objects.equals(createdBy, post.createdBy);
+        return id.equals(post.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, content, createdBy);
+        return Objects.hash(id);
     }
 }
