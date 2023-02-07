@@ -1,5 +1,7 @@
 package com.prgrms.be.app.domain;
 
+import com.prgrms.be.app.domain.post.Post;
+import com.prgrms.be.app.domain.user.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

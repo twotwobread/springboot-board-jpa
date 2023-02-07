@@ -1,13 +1,14 @@
 package com.prgrms.be.app.service;
 
-import com.prgrms.be.app.domain.Post;
-import com.prgrms.be.app.domain.User;
-import com.prgrms.be.app.domain.dto.PostCreateRequest;
-import com.prgrms.be.app.domain.dto.PostDetailResponse;
-import com.prgrms.be.app.domain.dto.PostUpdateRequest;
-import com.prgrms.be.app.domain.dto.PostsResponse;
-import com.prgrms.be.app.repository.PostRepository;
-import com.prgrms.be.app.repository.UserRepository;
+import com.prgrms.be.app.domain.post.Post;
+import com.prgrms.be.app.domain.post.dto.PostCreateRequest;
+import com.prgrms.be.app.domain.post.dto.PostDetailResponse;
+import com.prgrms.be.app.domain.post.dto.PostUpdateRequest;
+import com.prgrms.be.app.domain.post.dto.PostsResponse;
+import com.prgrms.be.app.domain.post.repository.PostRepository;
+import com.prgrms.be.app.domain.post.service.PostService;
+import com.prgrms.be.app.domain.user.User;
+import com.prgrms.be.app.domain.user.repository.UserRepository;
 import com.prgrms.be.app.util.PostConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;

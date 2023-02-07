@@ -1,7 +1,13 @@
-package com.prgrms.be.app.controller;
+package com.prgrms.be.app.domain.post.controller;
 
-import com.prgrms.be.app.domain.dto.*;
-import com.prgrms.be.app.service.PostService;
+import com.prgrms.be.app.common.dto.ApiResponse;
+import com.prgrms.be.app.common.dto.PageRequest;
+import com.prgrms.be.app.common.dto.ResponseMessage;
+import com.prgrms.be.app.domain.post.dto.PostCreateRequest;
+import com.prgrms.be.app.domain.post.dto.PostDetailResponse;
+import com.prgrms.be.app.domain.post.dto.PostUpdateRequest;
+import com.prgrms.be.app.domain.post.dto.PostsResponse;
+import com.prgrms.be.app.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,8 +38,8 @@ public class PostController {
     }
 
     @GetMapping
-    public ApiResponse<PostsResponse> getAll(@RequestBody PostPageRequest postPageRequest) {
-        PostsResponse postPages = postService.findAll(postPageRequest.of());
+    public ApiResponse<PostsResponse> getAll(@RequestBody PageRequest pageRequest) {
+        PostsResponse postPages = postService.findAll(pageRequest.of());
         return ApiResponse.ok(
                 postPages,
                 ResponseMessage.FINDED_ALL

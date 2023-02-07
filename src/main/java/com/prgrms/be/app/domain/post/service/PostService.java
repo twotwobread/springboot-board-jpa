@@ -1,13 +1,13 @@
-package com.prgrms.be.app.service;
+package com.prgrms.be.app.domain.post.service;
 
-import com.prgrms.be.app.domain.Post;
-import com.prgrms.be.app.domain.User;
-import com.prgrms.be.app.domain.dto.PostCreateRequest;
-import com.prgrms.be.app.domain.dto.PostDetailResponse;
-import com.prgrms.be.app.domain.dto.PostUpdateRequest;
-import com.prgrms.be.app.domain.dto.PostsResponse;
-import com.prgrms.be.app.repository.PostRepository;
-import com.prgrms.be.app.repository.UserRepository;
+import com.prgrms.be.app.domain.post.Post;
+import com.prgrms.be.app.domain.post.dto.PostCreateRequest;
+import com.prgrms.be.app.domain.post.dto.PostDetailResponse;
+import com.prgrms.be.app.domain.post.dto.PostUpdateRequest;
+import com.prgrms.be.app.domain.post.dto.PostsResponse;
+import com.prgrms.be.app.domain.post.repository.PostRepository;
+import com.prgrms.be.app.domain.user.User;
+import com.prgrms.be.app.domain.user.repository.UserRepository;
 import com.prgrms.be.app.util.PostConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -17,8 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 
-
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 @Service
 public class PostService {
 
@@ -26,13 +26,11 @@ public class PostService {
     private final UserRepository userRepository;
     private final PostConverter postConverter;
 
-    @Transactional(readOnly = true)
     public PostsResponse findAll(Pageable pageable) {
         Page<Post> all = postRepository.findAll(pageable);
         return postConverter.convertToPostsResponse(all);
     }
 
-    @Transactional(readOnly = true)
     public PostDetailResponse findById(Long id) {
         return postRepository.findById(id)
                 .map(postConverter::convertToPostDetailResponse)
