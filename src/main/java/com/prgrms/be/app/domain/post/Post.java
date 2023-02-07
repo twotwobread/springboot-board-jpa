@@ -19,7 +19,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 public class Post extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
