@@ -43,6 +43,7 @@ public class User extends BaseEntity {
 
     public User(String name, Integer age, String hobby) {
         checkArgument(!name.isBlank(), "이름은 공백만으로 이루어질 수 없습니다.", name);
+        checkArgument(1 <= age && age <= 120, "나이는 1살 이상 120살 이하의 범위에서만 설정이 가능합니다.", age);
 
         this.name = name;
         this.age = age;
@@ -51,9 +52,5 @@ public class User extends BaseEntity {
 
     public void setHobby(String hobby) {
         this.hobby = hobby;
-    }
-
-    public void addPost(Post post) {
-        post.setCreatedBy(this);
     }
 }
